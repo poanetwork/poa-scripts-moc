@@ -1,0 +1,24 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "keythereum": "^0.5.2",
+    "password-generator": "^2.2.0",
+    "web3": "^1.0.0-beta.26"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "/issues"
+  },
+  "homepage": "#README",
+  "dependencies": {
+    "password-generator": "^2.1.0"
+  }
+}
