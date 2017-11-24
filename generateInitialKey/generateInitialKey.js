@@ -59,7 +59,6 @@ function configureWeb3(cb) {
 			return finishScript(err);
 		}
 
-		web3.eth.defaultAccount = config.Ethereum[config.environment].account;
 		cb(web3, config, web3.eth.defaultAccount);
 	}, function(err) {
 		return finishScript(err);
