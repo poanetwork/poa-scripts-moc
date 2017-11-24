@@ -1355,7 +1355,7 @@
         ]
       },
       "KeysManager": {
-        "address": "0x8c9b4b504e6ffe7bc2f2811abc1fe0a2ef87fa5b",
+        "addr": "0x8c9b4b504e6ffe7bc2f2811abc1fe0a2ef87fa5b",
         "abi": [
           {
             "constant": true,

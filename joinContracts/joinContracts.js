@@ -32,14 +32,16 @@ async function joinContracts() {
 	const ballotsManagerABI = config.Ethereum.contracts.BallotsManager.abi;
 	const ballotsManager = attachToContract(web3, ballotsManagerAddr, ballotsManagerABI);
 
-	console.log(web3.eth.defaultAccount)
-	console.log(web3.eth.defaultAccount)
-
 	await validatorsStorage.methods.initialize(validatorsManagerAddr, keysStorageAddr, ballotsManagerAddr).send({from: web3.eth.defaultAccount});
-    await keysStorage.methods.initialize(keysManagerAddr, ballotsManagerAddr, validatorsStorageAddr, validatorsManagerAddr).send({from: web3.eth.defaultAccount})
+    console.log("validatorsStorage initialized")
     await validatorsManager.methods.initialize(validatorsStorageAddr, keysStorageAddr, keysManagerAddr).send({from: web3.eth.defaultAccount});
+    console.log("validatorsManager initialized")
+    await keysStorage.methods.initialize(keysManagerAddr, ballotsManagerAddr, validatorsStorageAddr, validatorsManagerAddr).send({from: web3.eth.defaultAccount})
+    console.log("keysStorage initialized")
     await ballotsStorage.methods.initialize(ballotsManagerAddr, keysStorageAddr).send({from: web3.eth.defaultAccount});
-    await ballotsManager.methods.initialize(ballotsStorageAddr, keysStorageAddr, keysManagerAddr, validatorsStorage.address).send({from: web3.eth.defaultAccount});
+    console.log("ballotsStorage initialized")
+    await ballotsManager.methods.initialize(ballotsStorageAddr, keysStorageAddr, keysManagerAddr, validatorsStorageAddr).send({from: web3.eth.defaultAccount});
+    console.log("ballotsManager initialized")
 
     finishScript();
 }
@@ -63,7 +65,7 @@ async function configureWeb3() {
 	}
 
 	let accounts = await web3.eth.getAccounts()
-	web3.eth.defaultAccount = accounts[1]
+	web3.eth.defaultAccount = accounts[0]
 
 	return web3;
 }

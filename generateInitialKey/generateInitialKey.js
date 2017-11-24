@@ -59,7 +59,7 @@ async function configureWeb3(config) {
 	}
 
 	let accounts = await web3.eth.getAccounts()
-	web3.eth.defaultAccount = accounts[1]
+	web3.eth.defaultAccount = accounts[0]
 
 	return web3;
 }
