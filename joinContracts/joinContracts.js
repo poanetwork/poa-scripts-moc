@@ -49,7 +49,7 @@ function getConfig() {
 	return config;
 }
 
-async function configureWeb3(cb) {
+async function configureWeb3() {
 	let web3;
 	if (typeof web3 !== 'undefined') web3 = new Web3(web3.currentProvider);
 	else web3 = new Web3(new Web3.providers.HttpProvider(config.Ethereum[config.environment].rpc));
@@ -63,7 +63,7 @@ async function configureWeb3(cb) {
 	}
 
 	let accounts = await web3.eth.getAccounts()
-	web3.eth.defaultAccount = accounts[0]
+	web3.eth.defaultAccount = accounts[1]
 
 	return web3;
 }

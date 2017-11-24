@@ -30,14 +30,14 @@ function generateAddressCallback(keyObject, password) {
 	attachToContract(initialKey, addInitialKey);
 }
 
-function attachToContract(initialKey, cb) {
-	configureWeb3(function(web3, config, defaultAccount) {
-		var contractABI = config.Ethereum.contracts.KeysStorage.abi;
-		var contractAddress = config.Ethereum.contracts.KeysStorage.addr;
-		var contractInstance = new web3.eth.Contract(contractABI, contractAddress);
-		
-		cb(contractInstance, web3, initialKey);
-	});
+async function attachToContract(initialKey, cb) {
+	var config = getConfig();
+	let web3 = await configureWeb3(config);
+	var contractABI = config.Ethereum.contracts.KeysStorage.abi;
+	var contractAddress = config.Ethereum.contracts.KeysStorage.addr;
+	var contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+	
+	cb(contractInstance, web3, initialKey);
 }
 
 function getConfig() {
@@ -45,24 +45,23 @@ function getConfig() {
 	return config;
 }
 
-function configureWeb3(cb) {
-	var config = getConfig();
-	var web3;
+async function configureWeb3(config) {
+	let web3;
 	if (typeof web3 !== 'undefined') web3 = new Web3(web3.currentProvider);
 	else web3 = new Web3(new Web3.providers.HttpProvider(config.Ethereum[config.environment].rpc));
 
 	if (!web3) return finishScript(err);
 	
-	web3.eth.net.isListening().then(function(isListening) {
-		if (!isListening) {
-			var err = {code: 500, title: "Error", message: "check RPC"};
-			return finishScript(err);
-		}
-
-		cb(web3, config, web3.eth.defaultAccount);
-	}, function(err) {
+	let isListening = await web3.eth.net.isListening()
+	if (!isListening) {
+		let err = {code: 500, title: "Error", message: "check RPC"};
 		return finishScript(err);
-	});
+	}
+
+	let accounts = await web3.eth.getAccounts()
+	web3.eth.defaultAccount = accounts[1]
+
+	return web3;
 }
 
 function addInitialKey(contract, web3, initialKey) {
@@ -102,6 +101,9 @@ function addInitialKeyTX(web3, contract, initialKey, cb) {
 		.send(opts, function(err, txHash) {
 			cb(err, txHash);
 		});
+    })
+    .catch(function(err) {
+    	finishScript(err)
     })
 }
 
