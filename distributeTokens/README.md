@@ -1,6 +1,6 @@
 # How to use
 
-1. Provide [csv file](exmaple.csv) in the following format: 
+1. Provide [csv file](example.csv) in the following format: 
     `0x2c57E1E3AD53F0b971422696c1470cEB84F83B1B,100`
 2. Run `npm install`
 3. Edit [.env](.env) file 
