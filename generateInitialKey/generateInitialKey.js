@@ -33,8 +33,8 @@ function generateAddressCallback(keyObject, password) {
 async function attachToContract(initialKey, cb) {
 	var config = getConfig();
 	let web3 = await configureWeb3(config);
-	var contractABI = config.Ethereum.contracts.KeysStorage.abi;
-	var contractAddress = config.Ethereum.contracts.KeysStorage.addr;
+	var contractABI = config.Ethereum.contracts.KeysManager.abi;
+	var contractAddress = config.Ethereum.contracts.KeysManager.addr;
 	var contractInstance = new web3.eth.Contract(contractABI, contractAddress);
 	
 	cb(contractInstance, web3, initialKey);
@@ -92,12 +92,12 @@ function getTxCallBack(web3, txHash, cb) {
 
 function addInitialKeyTX(web3, contract, initialKey, cb) {
 	var optsEstimate = {from: web3.eth.defaultAccount};
-	contract.methods.addInitialKey(initialKey).estimateGas(optsEstimate)
+	contract.methods.initiateKeys(initialKey).estimateGas(optsEstimate)
 	.then(function(estimatedGas) {
     	console.log("Estimated gas to add initial key:", estimatedGas)
 
 	    var opts = {from: web3.eth.defaultAccount, gasLimit: estimatedGas}
-		contract.methods.addInitialKey(initialKey)
+		contract.methods.initiateKeys(initialKey)
 		.send(opts, function(err, txHash) {
 			cb(err, txHash);
 		});
