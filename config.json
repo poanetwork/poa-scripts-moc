@@ -5,50 +5,18 @@
       "rpc": "http://127.0.0.1:8545"
     },
     "contracts": {
-      "ValidatorsStorage": {
-        "addr": "0xf472e0e43570b9afaab67089615080cf7c20018d",
+      "KeysManager": {
+        "addr": "0x0e4a78ba651fcf2058e1326e16fc9160553ca467",
         "abi": [
           {
             "constant": false,
             "inputs": [
               {
-                "name": "miningKey",
+                "name": "_miningKey",
                 "type": "address"
-              },
-              {
-                "name": "fullName",
-                "type": "string"
-              },
-              {
-                "name": "streetName",
-                "type": "string"
-              },
-              {
-                "name": "state",
-                "type": "string"
-              },
-              {
-                "name": "zip",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseID",
-                "type": "string"
-              },
-              {
-                "name": "licenseExpiredAt",
-                "type": "uint256"
-              },
-              {
-                "name": "disablingDate",
-                "type": "uint256"
-              },
-              {
-                "name": "disablingTX",
-                "type": "string"
               }
             ],
-            "name": "setValidator",
+            "name": "removePayoutKey",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
@@ -58,11 +26,11 @@
             "constant": false,
             "inputs": [
               {
-                "name": "addr",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
-            "name": "disableValidator",
+            "name": "removeVotingKey",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
@@ -72,812 +40,14 @@
             "constant": true,
             "inputs": [
               {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "name": "validator",
-            "outputs": [
-              {
-                "name": "fullName",
-                "type": "string"
-              },
-              {
-                "name": "streetName",
-                "type": "string"
-              },
-              {
-                "name": "state",
-                "type": "string"
-              },
-              {
-                "name": "zip",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseID",
-                "type": "string"
-              },
-              {
-                "name": "licenseExpiredAt",
-                "type": "uint256"
-              },
-              {
-                "name": "disablingDate",
-                "type": "uint256"
-              },
-              {
-                "name": "disablingTX",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getLastBlockHash",
-            "outputs": [
-              {
-                "name": "",
-                "type": "bytes32"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorFullName",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "name": "validators",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getDisabledValidators",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address[]"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "addValidator",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "x",
-                "type": "address"
-              }
-            ],
-            "name": "toString",
-            "outputs": [
-              {
-                "name": "",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "pure",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorState",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorStreetName",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "ballotsManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setValidatorsManager",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setBallotsManager",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorLicenseID",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorLicenseExpiredAt",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "name": "disabledValidators",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorDisablingDate",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "miningKey",
-                "type": "address"
-              }
-            ],
-            "name": "isMiningKeyDataExists",
-            "outputs": [
-              {
-                "name": "",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "validatorsManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getValidators",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address[]"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "validatorsManagerAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "ballotsManagerAddr",
-                "type": "address"
-              }
-            ],
-            "name": "initialize",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getDisabledValidatorsLength",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setkeysStorage",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "getValidatorZip",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "i",
-                "type": "uint256"
-              }
-            ],
-            "name": "getValidatorAtPosition",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "i",
-                "type": "uint256"
-              }
-            ],
-            "name": "getDisabledValidatorAtPosition",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "index",
-                "type": "uint256"
-              }
-            ],
-            "name": "removeValidator",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address[]"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getValidatorsLength",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "inputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "constructor"
-          },
-          {
-            "anonymous": false,
-            "inputs": [
-              {
-                "indexed": true,
-                "name": "_parent_hash",
-                "type": "bytes32"
-              },
-              {
-                "indexed": false,
-                "name": "_new_set",
-                "type": "address[]"
-              }
-            ],
-            "name": "InitiateChange",
-            "type": "event"
-          }
-        ]
-      },
-      "ValidatorsManager": {
-        "addr": "0xbbeeea48d60b8c24eaefa334a503509e23d5e515",
-        "abi": [
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "validatorsStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setKeysStorage",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "miningKey",
-                "type": "address"
-              },
-              {
-                "name": "zip",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseExpiredAt",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseID",
-                "type": "string"
-              },
-              {
-                "name": "fullName",
-                "type": "string"
-              },
-              {
-                "name": "streetName",
-                "type": "string"
-              },
-              {
-                "name": "state",
-                "type": "string"
-              }
-            ],
-            "name": "insertValidatorFromCeremony",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "miningKey",
-                "type": "address"
-              },
-              {
-                "name": "zip",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseExpiredAt",
-                "type": "uint256"
-              },
-              {
-                "name": "licenseID",
-                "type": "string"
-              },
-              {
-                "name": "fullName",
-                "type": "string"
-              },
-              {
-                "name": "streetName",
-                "type": "string"
-              },
-              {
-                "name": "state",
-                "type": "string"
-              }
-            ],
-            "name": "upsertValidatorFromGovernance",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setKeysManager",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "setValidatorsStorage",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "validatorsStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysManagerAddr",
-                "type": "address"
-              }
-            ],
-            "name": "initialize",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          }
-        ]
-      },
-      "KeysStorage": {
-        "addr": "0xeb1352fa30033da7f2a7b50a033ed47ef4b178a6",
-        "abi": [
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "votingKey",
-                "type": "address"
-              }
-            ],
-            "name": "getMiningByVoting",
-            "outputs": [
-              {
-                "name": "miningKey",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "name": "miningKeys",
-            "outputs": [
-              {
-                "name": "isActive",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "validatorsStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "miningKey",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
             "name": "getVotingByMining",
             "outputs": [
               {
-                "name": "votingKey",
+                "name": "",
                 "type": "address"
               }
             ],
@@ -889,15 +59,15 @@
             "constant": true,
             "inputs": [
               {
-                "name": "key",
+                "name": "",
                 "type": "address"
               }
             ],
-            "name": "checkInitialKey",
+            "name": "getMiningKeyByVoting",
             "outputs": [
               {
-                "name": "value",
-                "type": "bool"
+                "name": "",
+                "type": "address"
               }
             ],
             "payable": false,
@@ -908,32 +78,124 @@
             "constant": false,
             "inputs": [
               {
-                "name": "miningKey",
+                "name": "_key",
+                "type": "address"
+              }
+            ],
+            "name": "addMiningKey",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "poaNetworkConsensus",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "miningKeyHistory",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "getVotingToChangeKeys",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "getTime",
+            "outputs": [
+              {
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "validatorKeys",
+            "outputs": [
+              {
+                "name": "votingKey",
                 "type": "address"
               },
               {
                 "name": "payoutKey",
                 "type": "address"
+              },
+              {
+                "name": "isMiningActive",
+                "type": "bool"
+              },
+              {
+                "name": "isVotingActive",
+                "type": "bool"
+              },
+              {
+                "name": "isPayoutActive",
+                "type": "bool"
               }
             ],
-            "name": "setMiningPayoutKeysPair",
-            "outputs": [],
             "payable": false,
-            "stateMutability": "nonpayable",
+            "stateMutability": "view",
             "type": "function"
           },
           {
             "constant": true,
             "inputs": [
               {
-                "name": "",
+                "name": "_votingKey",
                 "type": "address"
               }
             ],
-            "name": "payoutKeys",
+            "name": "isVotingActive",
             "outputs": [
               {
-                "name": "isActive",
+                "name": "",
                 "type": "bool"
               }
             ],
@@ -945,87 +207,18 @@
             "constant": false,
             "inputs": [
               {
-                "name": "miningKey",
+                "name": "_key",
                 "type": "address"
               },
               {
-                "name": "votingKey",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
-            "name": "setMiningVotingKeysPair",
+            "name": "addPayoutKey",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "licensesIssued",
-            "outputs": [
-              {
-                "name": "",
-                "type": "int8"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [],
-            "name": "increaseLicenses",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "_payoutKey",
-                "type": "address"
-              },
-              {
-                "name": "_isActive",
-                "type": "bool"
-              }
-            ],
-            "name": "setPayoutKey",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "ballotsManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
             "type": "function"
           },
           {
@@ -1039,37 +232,41 @@
             "name": "initialKeys",
             "outputs": [
               {
-                "name": "isNew",
-                "type": "bool"
+                "name": "",
+                "type": "uint8"
               }
             ],
             "payable": false,
             "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "name": "_key",
+                "type": "address"
+              },
+              {
+                "name": "_miningKey",
+                "type": "address"
+              }
+            ],
+            "name": "swapPayoutKey",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
             "type": "function"
           },
           {
             "constant": true,
             "inputs": [
               {
-                "name": "miningKey",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
             "name": "getPayoutByMining",
-            "outputs": [
-              {
-                "name": "payoutKey",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
             "outputs": [
               {
                 "name": "",
@@ -1084,11 +281,11 @@
             "constant": false,
             "inputs": [
               {
-                "name": "key",
+                "name": "_key",
                 "type": "address"
               }
             ],
-            "name": "addInitialKey",
+            "name": "removeMiningKey",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
@@ -1097,44 +294,11 @@
           {
             "constant": true,
             "inputs": [],
-            "name": "validatorsManager",
+            "name": "maxLimitValidators",
             "outputs": [
               {
                 "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "checkMiningKeyValidity",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "initialKeysIssued",
-            "outputs": [
-              {
-                "name": "",
-                "type": "int8"
+                "type": "uint256"
               }
             ],
             "payable": false,
@@ -1145,15 +309,94 @@
             "constant": false,
             "inputs": [
               {
-                "name": "miningAddr",
+                "name": "_initialKey",
+                "type": "address"
+              }
+            ],
+            "name": "initiateKeys",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "name": "_key",
                 "type": "address"
               },
               {
-                "name": "payoutAddr",
+                "name": "_miningKey",
+                "type": "address"
+              }
+            ],
+            "name": "addVotingKey",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "name": "_key",
+                "type": "address"
+              }
+            ],
+            "name": "isMiningActive",
+            "outputs": [
+              {
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "proxyStorage",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "votingContract",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "name": "_miningKey",
                 "type": "address"
               },
               {
-                "name": "votingAddr",
+                "name": "_votingKey",
+                "type": "address"
+              },
+              {
+                "name": "_payoutKey",
                 "type": "address"
               }
             ],
@@ -1165,30 +408,11 @@
           },
           {
             "constant": true,
-            "inputs": [
+            "inputs": [],
+            "name": "initialKeysCount",
+            "outputs": [
               {
                 "name": "",
-                "type": "address"
-              }
-            ],
-            "name": "votingKeys",
-            "outputs": [
-              {
-                "name": "isActive",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getLicensesIssuedFromGovernance",
-            "outputs": [
-              {
-                "name": "licensesIssuedFromGovernance",
                 "type": "uint256"
               }
             ],
@@ -1200,15 +424,33 @@
             "constant": false,
             "inputs": [
               {
-                "name": "votingKey",
+                "name": "_key",
                 "type": "address"
               },
               {
-                "name": "miningKey",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
-            "name": "setVotingMiningKeysPair",
+            "name": "swapVotingKey",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "name": "_key",
+                "type": "address"
+              },
+              {
+                "name": "_oldMiningKey",
+                "type": "address"
+              }
+            ],
+            "name": "swapMiningKey",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
@@ -1216,17 +458,26 @@
           },
           {
             "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "checkPayoutKeyValidity",
+            "inputs": [],
+            "name": "maxNumberOfInitialKeys",
             "outputs": [
               {
-                "name": "value",
-                "type": "bool"
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "masterOfCeremony",
+            "outputs": [
+              {
+                "name": "",
+                "type": "address"
               }
             ],
             "payable": false,
@@ -1237,900 +488,144 @@
             "constant": true,
             "inputs": [
               {
-                "name": "",
+                "name": "_miningKey",
                 "type": "address"
               }
             ],
-            "name": "miningToSecondaryKeys",
+            "name": "isPayoutActive",
             "outputs": [
               {
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "name": "_proxyStorage",
+                "type": "address"
+              },
+              {
+                "name": "_poaConsensus",
+                "type": "address"
+              },
+              {
+                "name": "_masterOfCeremony",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "name": "key",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "name": "miningKey",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "name": "action",
+                "type": "string"
+              }
+            ],
+            "name": "PayoutKeyChanged",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "name": "key",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "name": "miningKey",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "name": "action",
+                "type": "string"
+              }
+            ],
+            "name": "VotingKeyChanged",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "name": "key",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "name": "action",
+                "type": "string"
+              }
+            ],
+            "name": "MiningKeyChanged",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "name": "miningKey",
+                "type": "address"
+              },
+              {
+                "indexed": true,
                 "name": "votingKey",
                 "type": "address"
               },
               {
+                "indexed": true,
                 "name": "payoutKey",
                 "type": "address"
               }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            "name": "ValidatorInitialized",
+            "type": "event"
           },
           {
-            "constant": false,
+            "anonymous": false,
             "inputs": [
               {
-                "name": "_votingKey",
+                "indexed": true,
+                "name": "initialKey",
                 "type": "address"
               },
               {
-                "name": "_isActive",
-                "type": "bool"
-              }
-            ],
-            "name": "setVotingKey",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "name": "votingMiningKeysPair",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "addr",
-                "type": "address"
-              }
-            ],
-            "name": "checkVotingKeyValidity",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "initialKeysInvalidated",
-            "outputs": [
-              {
-                "name": "",
-                "type": "int8"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "keysManagerAddr",
-                "type": "address"
-              },
-              {
-                "name": "ballotsManagerAddr",
-                "type": "address"
-              },
-              {
-                "name": "validatorsStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "validatorsManagerAddr",
-                "type": "address"
-              }
-            ],
-            "name": "initialize",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          }
-        ]
-      },
-      "KeysManager": {
-        "addr": "0x8c9b4b504e6ffe7bc2f2811abc1fe0a2ef87fa5b",
-        "abi": [
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "licensesLimit",
-            "outputs": [
-              {
-                "name": "",
-                "type": "int8"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "initialKeysLimit",
-            "outputs": [
-              {
-                "name": "",
-                "type": "int8"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getLicensesLimitFromGovernance",
-            "outputs": [
-              {
-                "name": "licensesLimitFromGovernance",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          }
-        ]
-      },
-      "BallotsStorage": {
-        "addr": "0xdebe80f4800a23db154d023190d0658c1a6c033a",
-        "abi": [
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotAffectedKey",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotMemo",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "string"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotVotingStart",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "name": "ballotsMapping",
-            "outputs": [
-              {
-                "name": "owner",
-                "type": "address"
-              },
-              {
-                "name": "miningKey",
-                "type": "address"
-              },
-              {
-                "name": "affectedKey",
-                "type": "address"
-              },
-              {
-                "name": "memo",
-                "type": "string"
-              },
-              {
-                "name": "affectedKeyType",
+                "indexed": false,
+                "name": "time",
                 "type": "uint256"
               },
               {
-                "name": "createdAt",
-                "type": "uint256"
-              },
-              {
-                "name": "votingStart",
-                "type": "uint256"
-              },
-              {
-                "name": "votingDeadline",
-                "type": "uint256"
-              },
-              {
-                "name": "votesAmmount",
-                "type": "int256"
-              },
-              {
-                "name": "result",
-                "type": "int256"
-              },
-              {
-                "name": "addAction",
-                "type": "bool"
-              },
-              {
-                "name": "active",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              },
-              {
-                "name": "owner",
-                "type": "address"
-              },
-              {
-                "name": "miningKey",
-                "type": "address"
-              },
-              {
-                "name": "affectedKey",
-                "type": "address"
-              },
-              {
-                "name": "affectedKeyType",
-                "type": "uint256"
-              },
-              {
-                "name": "duration",
-                "type": "uint256"
-              },
-              {
-                "name": "addAction",
-                "type": "bool"
-              },
-              {
-                "name": "memo",
-                "type": "string"
-              }
-            ],
-            "name": "addBallotInternal",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotsManagerAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysStorageAddr",
-                "type": "address"
-              }
-            ],
-            "name": "initialize",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "",
+                "indexed": false,
+                "name": "initialKeysCount",
                 "type": "uint256"
               }
             ],
-            "name": "ballots",
-            "outputs": [
-              {
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "ballotsManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "ballotIsVoted",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getBallotsLength",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "ballotIsActive",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "i",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotAtPosition",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotOwner",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotAffectedKeyType",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotVotingEnd",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotAction",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getBallotMiningKey",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "ballotCreatedAt",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getVotesAgainst",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "int256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "finalizeBallotInternal",
-            "outputs": [
-              {
-                "name": "finalized",
-                "type": "bool"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              },
-              {
-                "name": "accept",
-                "type": "bool"
-              }
-            ],
-            "name": "vote",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "getVotesFor",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "int256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "getBallots",
-            "outputs": [
-              {
-                "name": "value",
-                "type": "uint256[]"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          }
-        ]
-      },
-      "BallotsManager": {
-        "addr": "0xfd3c58bc0dc90c4d09b79e99a7ef6318e2342100",
-        "abi": [
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "checkBallotsActivityPostActionRemove",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "validatorsStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              },
-              {
-                "name": "owner",
-                "type": "address"
-              },
-              {
-                "name": "miningKey",
-                "type": "address"
-              },
-              {
-                "name": "affectedKey",
-                "type": "address"
-              },
-              {
-                "name": "affectedKeyType",
-                "type": "uint256"
-              },
-              {
-                "name": "duration",
-                "type": "uint256"
-              },
-              {
-                "name": "addAction",
-                "type": "bool"
-              },
-              {
-                "name": "memo",
-                "type": "string"
-              }
-            ],
-            "name": "addBallot",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "ballotsStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysManager",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "keysStorage",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "finalizeBallot",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-              {
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotID",
-                "type": "uint256"
-              }
-            ],
-            "name": "checkBallotsActivityPostActionAdd",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "constant": true,
-            "inputs": [],
-            "name": "votingLowerLimit",
-            "outputs": [
-              {
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-          },
-          {
-            "constant": false,
-            "inputs": [
-              {
-                "name": "ballotsStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysStorageAddr",
-                "type": "address"
-              },
-              {
-                "name": "keysManagerAddr",
-                "type": "address"
-              },
-              {
-                "name": "validatorsStorageAddr",
-                "type": "address"
-              }
-            ],
-            "name": "initialize",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            "name": "InitialKeyCreated",
+            "type": "event"
           }
         ]
       }
