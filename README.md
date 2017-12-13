@@ -1,2 +1,2 @@
-# oracles-scripts-owner
-Scripts for owner
+# poa-scripts-moc
+Scripts for MoC
