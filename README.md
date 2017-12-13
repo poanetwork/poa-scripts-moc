@@ -1,2 +1,2 @@
-# oracles-scripts-owner
+# poa-scripts-owner
 Scripts for owner
