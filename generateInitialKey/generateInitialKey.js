@@ -20,10 +20,10 @@ function generateAddress(cb) {
   	});
 }
 
-//saves initial key keystore file to ./initialKeysDemo folder
+//saves initial key keystore file to ./output folder
 function generateAddressCallback(keyObject, password) {
 	let initialKey = "0x" + keyObject.address
-	let filename = "./initialKeysDemo/" + keyObject.address + ".json";
+	let filename = "./output/" + keyObject.address + ".json";
 	let content = JSON.stringify(keyObject);
 	fs.writeFileSync(filename, content)
 
