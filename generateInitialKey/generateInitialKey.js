@@ -2,6 +2,7 @@ let fs = require('fs');
 let keythereum = require("keythereum");
 let Web3 = require('web3');
 let generatePassword = require('password-generator');
+const outputFolder = "./output/";
 
 generateAddress(generateAddressCallback);
 
@@ -22,13 +23,14 @@ function generateAddress(cb) {
 
 //saves initial key keystore file to ./output folder
 function generateAddressCallback(keyObject, password) {
-	let initialKey = "0x" + keyObject.address
-	let filename = "./output/" + keyObject.address + ".json";
+	let initialKey = `0x${keyObject.address}`;
+	let keyStoreFileName = outputFolder + keyObject.address + ".json";
+	let passwordFileName = outputFolder + keyObject.address + ".key";
 	let content = JSON.stringify(keyObject);
-	fs.writeFileSync(filename, content)
-
-	console.log("Initial key " + initialKey + " is generated to " + filename);
-	console.log("Password for initial key:", password);
+	fs.writeFileSync(keyStoreFileName, content);
+	console.log(`Initial key ${initialKey} is generated to ${keyStoreFileName}`);
+	fs.writeFileSync(passwordFileName, password);
+	console.log(`Initial key password is generated to ${passwordFileName}`);
 	attachToContract(initialKey, addInitialKey);
 }
 
@@ -81,14 +83,14 @@ async function addInitialKey(contract, web3, initialKey) {
 	}
 	if (!estimatedGas) return;
 	
-	console.log("Estimated gas to add initial key:", estimatedGas)
+	console.log(`Estimated gas to add initial key: {estimatedGas}`)
 
 	addInitialKeyTX(web3, contract, initialKey, estimatedGas)
 	.on("transactionHash", (txHash) => {
 		console.log(`Wait tx ${txHash} to add initial key to be mined...`);
 	})
 	.on("receipt", (receipt) => {
-		console.log("Tx " + receipt.transactionHash + " to add initial key is mined...");
+		console.log(`Tx ${receipt.transactionHash} to add initial key is mined...`);
 		sendEtherToInitialKeyTX(web3, initialKey)
 		.on("transactionHash", (txHash) => {
 			console.log(`Wait tx ${txHash} to send Eth to initial key to be mined...`);
@@ -115,7 +117,7 @@ function addInitialKeyTX(web3, contract, initialKey, estimatedGas) {
 function sendEtherToInitialKeyTX(web3, initialKey) {
 	let BN = web3.utils.BN;
 	let ethToSend = web3.utils.toWei(new BN(100), "milliether");
-	console.log("WEI to send to initial key: " + ethToSend)
+	console.log(`WEI to send to initial key: ${ethToSend}`)
 
 	let opts = {from: web3.eth.defaultAccount, to: initialKey, value: ethToSend};
 	return web3.eth.sendTransaction(opts);
