@@ -1,4 +1,4 @@
-# Scripts for owner
+# Scripts for Master of Ceremony
 
 ## generateInitialKey
 
