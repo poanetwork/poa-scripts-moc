@@ -3,6 +3,7 @@ let keythereum = require("keythereum");
 let Web3 = require('web3');
 let generatePassword = require('password-generator');
 const outputFolder = "./output/";
+const KeysManagerAbi = require('./KeysManager.json.abi.json');
 
 generateAddress(generateAddressCallback);
 
@@ -38,8 +39,9 @@ function generateAddressCallback(keyObject, password) {
 async function attachToContract(initialKey, cb) {
 	let config = getConfig();
 	let web3 = await configureWeb3(config);
-	let contractABI = config.Ethereum.contracts.KeysManager.abi;
-	let contractAddress = config.Ethereum.contracts.KeysManager.addr;
+	let contractABI = KeysManagerAbi;
+	const network = process.env.NETWORK;
+	let contractAddress = config.Ethereum.contracts.KeysManager[network]['addr'];
 	let contractInstance = new web3.eth.Contract(contractABI, contractAddress);
 	
 	cb(contractInstance, web3, initialKey);
