@@ -1,0 +1,4 @@
+[submodule "submodules/poa-test-setup"]
+	path = submodules/poa-test-setup
+	url = https://github.com/poanetwork/poa-test-setup
+	branch = master

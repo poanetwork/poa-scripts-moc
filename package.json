@@ -1,0 +1,24 @@
+{
+  "name": "poa-scripts-moc",
+  "version": "1.0.0",
+  "description": "## generateInitialKey",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "prepare-setup": "cd ./submodules/poa-test-setup/ && npm i && npm run start-moc-setup",
+    "start-unit-test": "cd ./generateInitialKey && npm i && npm test",
+    "stop-setup": "cd ./submodules/poa-test-setup/ && npm run stop-test-setup > /dev/null 2>&1 &",
+    "test": "npm run prepare-setup && npm run start-unit-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poanetwork/poa-scripts-moc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poanetwork/poa-scripts-moc/issues"
+  },
+  "homepage": "https://github.com/poanetwork/poa-scripts-moc#readme"
+}
