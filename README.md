@@ -8,7 +8,7 @@ Generates initial key from master of ceremony node.
 
 - `cd ./generateInitialKey`
 - `npm i`
-- `node generateInitialKey.js`
+- `NETWORK=sokol node generateInitialKey.js`
 
 ### Config
 
@@ -23,8 +23,12 @@ Example of config:
     },
     "contracts": {
       "KeysManager": {
-        "addr": "0x0e4a78ba651fcf2058e1326e16fc9160553ca467", // address of KeysManager contract
-        "abi": [...] //ABI of KeysManager contract
+        "sokol":{
+          "addr": "0x0e4a78ba651fcf2058e1326e16fc9160553ca467", // address of KeysManager contract
+        },
+        "core": {
+          "addr": "0x0e4a78ba651fcf2058e1326e16fc9160553ca467", // address of KeysManager contract
+        }
       }
     }
   }
