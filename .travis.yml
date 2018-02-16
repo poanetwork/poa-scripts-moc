@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "8"
+
+before_install:
+  - wget https://parity-downloads-mirror.parity.io/v1.9.2/x86_64-unknown-linux-gnu/parity_1.9.2_amd64.deb
+  - sudo dpkg -i parity_1.9.2_amd64.deb
+
+install:
+  - npm install
+
+after-script:
+  - npm run stop-setup

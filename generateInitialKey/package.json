@@ -1,24 +1,31 @@
 {
-  "name": "",
-  "version": "1.0.0",
-  "description": "",
-  "devDependencies": {
-    "keythereum": "^0.5.2",
-    "password-generator": "^2.2.0",
-    "web3": "^1.0.0-beta.26"
-  },
+  "name": "poa-script-moc-generate-initial-key",
+  "version": "2.0.0",
+  "description": "generates initial key",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/poanetwork/poa-scripts-moc"
   },
   "keywords": [],
-  "author": "",
+  "author": "POA Network",
   "license": "ISC",
   "bugs": {
     "url": "/issues"
   },
   "homepage": "#README",
   "dependencies": {
-    "password-generator": "^2.1.0"
+    "keythereum": "^1.0.2",
+    "password-generator": "^2.2.0",
+    "web3": "^1.0.0-beta.29"
+  },
+  "devDependencies": {
+    "ethereumjs-tx": "^1.3.3",
+    "mocha": "^5.0.1",
+    "node-dir": "^0.1.17",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "start": "node index",
+    "test": "mocha"
   }
 }
