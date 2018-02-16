@@ -6,6 +6,7 @@ const EthereumTx = require('ethereumjs-tx');
 const assert = require('assert');
 const generateInitialKey = require('../generateInitialKey');
 const configureWeb3 = require('../utils/configureWeb3');
+const errorFinish = require('../utils/errorResponse');
 const getConfig = require('../utils/getConfig');
 const constants = require('../utils/constants');
 
@@ -58,6 +59,7 @@ describe("Initial key generation", async function() {
 		var privateKey = keythereum.recover(password, keyStore);
 		const privateKeyHex = Buffer.from(privateKey, 'hex')
 
+		let config;
 		try { config = await getConfig() }
 		catch (err) { return errorFinish(err); }
 
@@ -126,7 +128,7 @@ function getOutput() {
 		    		keyStorePath = file
 		    		try { keyStore = await checkKeyStoreFile(file) }
 					catch (err) { return reject(err) }
-		    	} else if (ext = keyExt) {
+		    	} else if (ext == keyExt) {
 		    		passwordPath = file
 		    		try { password = await readFile(file) }
 					catch (err) { return reject(err) }
@@ -139,6 +141,7 @@ function getOutput() {
 
 function checkKeyStoreFile(file) {
 	return new Promise(async (resolve, reject) => {
+		let content;
 		try { content = await readFile(file) }
 		catch (err) { return reject(err) }
 
@@ -158,12 +161,6 @@ function readFile(file) {
 			}
 		});
 	});
-}
-
-function sendRawTX() {
-	web3.eth.sendRawTransaction("0x" + serializedTx.toString('hex'), function(err, hash) {
-			sendRawTransactionResponse(err, hash, response);
-		});
 }
 
 function returnError(err) {

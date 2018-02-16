@@ -5,8 +5,6 @@ function generateAddress(password) {
 	return new Promise((resolve, reject) => {
 		let params = { keyBytes: 32, ivBytes: 16 };
 
-	  	let dk = keythereum.create(params);
-
 	  	keythereum.create(params, function (dk) {
 		    let options = {};
 		    keythereum.dump(password, dk.privateKey, dk.salt, dk.iv, options, function (keyObject) {
