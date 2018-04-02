@@ -8,7 +8,7 @@ Generates initial key from master of ceremony node.
 
 - `cd ./generateInitialKey`
 - `npm i`
-- `node generateInitialKey.js`
+- `npm start`
 
 ### Config
 
